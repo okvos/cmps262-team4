@@ -1,0 +1,23 @@
+on:
+  push:
+    branches:    
+      - master
+      
+name: Push site to jail
+jobs:
+  Push-To-Jail:
+    name: Push to jail
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+        
+    - name: List output files
+      run: ls
+      
+    - name: Sync files
+      uses: SamKirkland/FTP-Deploy-Action@3.1.0
+      with:
+        ftp-server: sftp://${{ secrets.FTP_HOST }}/usr/home/tsovko/www/cmps262-team4
+        ftp-username: ${{ secrets.FTP_USERNAME }}
+        ftp-password: ${{ secrets.FTP_PASSWORD }}
+        git-ftp-args: --insecure
