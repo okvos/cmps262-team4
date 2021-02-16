@@ -1,7 +1,7 @@
 on:
   push:
     branches:    
-      - master
+      - main
       
 name: Push site to jail
 jobs:
@@ -9,7 +9,7 @@ jobs:
     name: Push to jail
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
+    - uses: actions/checkout@main
         
     - name: List output files
       run: ls
