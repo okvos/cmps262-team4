@@ -1,15 +1,13 @@
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Team 4 App
-        </p>
-       <p>Placeholder</p>
+          { /* Todo: replace with <Link> as pages get build */ }
+          <a href="/">Home</a>
+          <a href="/login">Login</a>
+          <a href="/create">Create an Account</a>
       </header>
     </div>
   );
