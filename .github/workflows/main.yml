@@ -1,8 +1,8 @@
 on:
   push:
-    branches:    
+    branches:
       - main
-      
+
 name: Push site to jail
 jobs:
   Push-To-Jail:
@@ -11,11 +11,6 @@ jobs:
     steps:
     - uses: actions/checkout@main
         
-    - name: Build Project
-      run: |
-        npm install
-        npm run build
-      
     - name: Sync files
       uses: SamKirkland/FTP-Deploy-Action@3.1.0
       with:
