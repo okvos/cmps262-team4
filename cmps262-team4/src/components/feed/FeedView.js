@@ -53,6 +53,7 @@ export default function FeedView() {
       }
     }
 
+    mockPosts.sort((a, b) => b.date - a.date);
     setPosts(mockPosts);
   }, []);
   return (
