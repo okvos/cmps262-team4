@@ -11,8 +11,10 @@ jobs:
     steps:
     - uses: actions/checkout@main
         
-    - name: List output files
-      run: ls
+    - name: Build Project
+      run: |
+        npm install
+        npm run build
       
     - name: Sync files
       uses: SamKirkland/FTP-Deploy-Action@3.1.0
