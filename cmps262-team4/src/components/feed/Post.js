@@ -1,5 +1,6 @@
 import React from "react";
 import Moment from "react-moment";
+import { util } from "../Util";
 
 export default function Post({ post }) {
   return (
@@ -23,28 +24,27 @@ export default function Post({ post }) {
             {post.text}
           </p>
         </div>
-        <nav className="level is-mobile">
-          <div className="level-left">
-            <a className="level-item">
-              <span className="icon is-small">
-                <i className="fa fa-reply"></i>
-              </span>
-            </a>
-            <a className="level-item">
-              <span className="icon is-small">
-                <i className="fa fa-retweet"></i>
-              </span>
-            </a>
-            <a className="level-item">
-              <span className="icon is-small">
-                <i className="fa fa-heart"></i>
-              </span>
-            </a>
-          </div>
-        </nav>
-      </div>
-      <div className="media-right">
-        <button className="delete"></button>
+        {util.isLoggedIn() === true && (
+          <nav className="level is-mobile">
+            <div className="level-left">
+              <a className="level-item">
+                <span className="icon is-small">
+                  <i className="fa fa-reply"></i>
+                </span>
+              </a>
+              <a className="level-item">
+                <span className="icon is-small">
+                  <i className="fa fa-retweet"></i>
+                </span>
+              </a>
+              <a className="level-item">
+                <span className="icon is-small">
+                  <i className="fa fa-heart"></i>
+                </span>
+              </a>
+            </div>
+          </nav>
+        )}
       </div>
     </article>
   );
