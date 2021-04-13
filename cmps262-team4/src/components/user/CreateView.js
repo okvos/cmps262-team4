@@ -5,10 +5,13 @@ export default function CreateView() {
   let [userIsAvailable, setUserIsAvailable] = useState(null);
   let [username, setUsername] = useState("");
 
+  // bool if account has been created or not to show success
   let [accountCreated, setAccountCreated] = useState(false);
 
+  // current creation step
   let [currentStep, setCurrentStep] = useState(1);
 
+  // check if username is available as user types it
   useEffect(
     (_) => {
       if (username === "") setUserIsAvailable(null);
@@ -23,29 +26,30 @@ export default function CreateView() {
     <>
       {accountCreated === true && (
         <>
-            <div className="success-animation">
-                <svg
-                    className="checkmark"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 52 52"
-                >
-                    <circle
-                        className="checkmark__circle"
-                        cx="26"
-                        cy="26"
-                        r="25"
-                        fill="none"
-                    />
-                    <path
-                        className="checkmark__check"
-                        fill="none"
-                        d="M14.1 27.2l7.1 7.2 16.7-16.8"
-                    />
-                </svg>
-            </div>
+          <div className="success-animation">
+            <svg
+              className="checkmark"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 52 52"
+            >
+              <circle
+                className="checkmark__circle"
+                cx="26"
+                cy="26"
+                r="25"
+                fill="none"
+              />
+              <path
+                className="checkmark__check"
+                fill="none"
+                d="M14.1 27.2l7.1 7.2 16.7-16.8"
+              />
+            </svg>
+          </div>
           <h1 className="title has-text-centered">Success</h1>
-          <h1 className="subittle has-text-centered">Your account has been created</h1>
-
+          <h1 className="subittle has-text-centered">
+            Your account has been created
+          </h1>
         </>
       )}
       {accountCreated === false && (
