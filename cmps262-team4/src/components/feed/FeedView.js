@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { MOCK_POST_COUNT, util } from "../Util";
 import { name, lorem } from "faker";
 import Post from "./Post";
+import CreatePost from "./CreatePost";
 
 export default function FeedView() {
   const [posts, setPosts] = useState(null);
@@ -33,10 +34,35 @@ export default function FeedView() {
       });
     }
 
+    // add my posts if i'm logged in
+    if (util.isLoggedIn()) {
+      let myPosts = window.localStorage.getItem("posts");
+      if (myPosts) {
+        myPosts = JSON.parse(myPosts);
+        for (let post of myPosts) {
+          mockPosts.push({
+            id: Math.floor(Math.random() * 50) + 5,
+            author: {
+              name: util.username,
+              username: util.username,
+            },
+            text: post.text,
+            date: new Date(post.date),
+          });
+        }
+      }
+    }
+
     setPosts(mockPosts);
   }, []);
   return (
     <>
+      {util.isLoggedIn() === true && (
+        <>
+          <CreatePost />
+          <hr />
+        </>
+      )}
       {posts &&
         posts.map((post, key) => {
           return <Post post={post} key={key} />;
