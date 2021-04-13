@@ -1,8 +1,7 @@
 import 'bulma/css/bulma.css';
 import Navigation from "./components/Navigation";
-import FeedView from "./components/feed/FeedView";
 
-function ViewManager ({ view }) {
+export function ViewManager ({ view }) {
     let View = view; // components need to be capitalized
     return (
         <section className="section">
@@ -19,7 +18,6 @@ function App() {
   return (
     <div className="App">
         <Navigation />
-        <ViewManager view={FeedView} />
     </div>
   );
 }
