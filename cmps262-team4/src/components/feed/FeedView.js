@@ -4,7 +4,7 @@ import { name, lorem } from "faker";
 import Post from "./Post";
 import CreatePost from "./CreatePost";
 
-export default function FeedView() {
+export default function FeedView({ limit }) {
   const [posts, setPosts] = useState(null);
   useEffect((_) => {
     // normally request posts from server
@@ -12,7 +12,7 @@ export default function FeedView() {
     // fetchPosts = async _ => { }; await fetchPosts();
 
     let mockPosts = [];
-    for (let i = 0; i <= MOCK_POST_COUNT; i++) {
+    for (let i = 0; i <= (limit || MOCK_POST_COUNT); i++) {
       //let name = util.generateFakeName();
       let mockName = name.findName();
       let username = mockName.toLowerCase().split(" ").join("-");
