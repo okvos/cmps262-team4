@@ -20,7 +20,9 @@ export default function CreatePost() {
     }
 
     window.localStorage.setItem("posts", JSON.stringify(posts));
-    window.location.reload(); // refresh to reload local storage
+    // window.location.reload(); // refresh to reload local storage
+    // redirect to homepage since jail doesn't play well with react
+    document.location = "/cmps262-team4/build";
   };
   return (
     <div>

@@ -12,7 +12,7 @@ export default function LoginView() {
     // set username to signify we're logged in
     window.localStorage.setItem("username", username);
     // force redirect rather than React.Link so the web app can reload user info
-    document.location = "/";
+    document.location = "/cmps262-team4/build";
   };
   return (
     <>
