@@ -5,6 +5,8 @@ import CreateView from "./user/CreateView";
 import FeedView from "./feed/FeedView";
 import LoginView from "./user/LoginView";
 import { util } from "./Util";
+import DirectoryView from "./profile/DirectoryView";
+import ProfileView from "./profile/ProfileView";
 
 export default function Navigation() {
   return (
@@ -51,7 +53,7 @@ export default function Navigation() {
                     {util.isLoggedIn() === true && (
                       <>
                         <Link
-                          to={`/profile/${util.username}`}
+                          to={`/profiles/${util.username}`}
                           className="button"
                         >
                           @{util.username}
@@ -87,8 +89,11 @@ export default function Navigation() {
           <Route path="/create-account">
             <ViewManager view={CreateView} />
           </Route>
+          <Route path="/profiles/:id">
+            <ViewManager view={ProfileView} />
+          </Route>
           <Route path="/profiles">
-            <ViewManager view="profiles" />
+            <ViewManager view={DirectoryView} />
           </Route>
           <Route path="/">
             <ViewManager view={FeedView} />

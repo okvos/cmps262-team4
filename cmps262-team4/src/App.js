@@ -1,14 +1,16 @@
 import "bulma/css/bulma.css";
 import Navigation from "./components/Navigation";
 import { util } from "./components/Util";
+import { useParams } from "react-router";
 
 export function ViewManager({ view }) {
+  let params = useParams();
   let View = view; // components need to be capitalized
   return (
     <section className="section">
-      {view.__TITLE__ && <h1 className="title">{view.__TITLE__}</h1>}
+      {View.__TITLE__ && <h1 className="title">{View.__TITLE__}</h1>}
       <div className="box">
-        <View />
+        <View {...params} />
       </div>
     </section>
   );

@@ -1,6 +1,7 @@
 import React from "react";
 import Moment from "react-moment";
 import { util } from "../Util";
+import { Link } from "react-router-dom";
 
 export default function Post({ post }) {
   return (
@@ -14,7 +15,10 @@ export default function Post({ post }) {
         <div className="content">
           <p>
             <strong>{post.author.name}</strong>{" "}
-            <small>@{post.author.username}</small> &mdash;{" "}
+            <Link to={`/profiles/${post.author.username}`}>
+              <small>@{post.author.username}</small>
+            </Link>{" "}
+            &mdash;{" "}
             <small>
               <Moment fromNow withTitle>
                 {post.date}
